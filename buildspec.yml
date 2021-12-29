@@ -7,8 +7,8 @@ phases:
       - npm install
     build:
       commands:
-        - echo Removendo pasta node modules 
-        # - rm -r -f node_modules
+        - echo build production
+        - npm run build
 artifacts:
   base-directory: '.'
   files:
