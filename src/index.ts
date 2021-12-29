@@ -19,7 +19,11 @@ try {
 const PORT = 8000;
 
 app.get("/", async (req, res) => {
-  res.send("Bem-Vindo PrimeControl");
+  res.send("Hello world");
+});
+
+app.get("/api", async (req, res) => {
+  res.send("Prime");
 });
 
 app.post("/users-form/create", async (req, res) => {
