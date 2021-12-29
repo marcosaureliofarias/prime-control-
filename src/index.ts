@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 try {
-  const databaseUriUrl = "mongodb+srv://gabrieltamura:nlcXTtw3achrnXXj@b8one-academy.9rvo8.mongodb.net/academy";
+  const databaseUriUrl = "mongodb+srv://Thrower:thrower@cluster0.xzqic.mongodb.net/HuntingIA-Dev?retryWrites=true&w=majority";
   connectMongoDB(databaseUriUrl);
 } catch (e: any) {
   console.error(e.message);
