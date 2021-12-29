@@ -7,8 +7,12 @@ phases:
       - npm install
     build:
       commands:
-        - echo build production
+        - echo Create build...
         - npm run build
+    post_build:
+      commands:
+        - echo Removing unnecessay files....
+        - rm -rf node_modules/
 artifacts:
   base-directory: '.'
   files:
