@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Install packes...
+      - npm install
+    build:
+      - echo Create build..
+      - npm run build
+    post_build:
+      commands:
+        - echo Remover pasta node_modules
+        - rm -rf node_modules/
+artifacts:
+  base-directory: '.'
+  files:
+    - '**/*'
