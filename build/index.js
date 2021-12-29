@@ -15,10 +15,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongodb_1 = __importDefault(require("./database/mongodb"));
 const Form_1 = __importDefault(require("./models/Form"));
+const uri = process.env.MONGO;
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 try {
-    const databaseUriUrl = "mongodb+srv://Thrower:thrower@cluster0.xzqic.mongodb.net/HuntingIA-Dev?retryWrites=true&w=majority";
+    const databaseUriUrl = uri;
     (0, mongodb_1.default)(databaseUriUrl);
 }
 catch (e) {
@@ -27,7 +28,10 @@ catch (e) {
 }
 const PORT = 8000;
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("Bem-Vindo PrimeControl");
+    res.send("Hello world");
+}));
+app.get("/api", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.send("Prime");
 }));
 app.post("/users-form/create", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const body = req.body;
