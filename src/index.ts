@@ -21,7 +21,7 @@ try {
 const PORT = 8000;
 
 app.get("/", async (req, res) => {
-  res.send("tairone devops");
+  res.send("tairone Wonderlands");
 });
 
 app.get("/api", async (req, res) => {

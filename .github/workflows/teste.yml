@@ -50,6 +50,6 @@ jobs:
           aws_secret_key: ${{ secrets.SECRET_ACCESS_KEY }}
           application_name: docker-prime
           environment_name: Dockerprime-env
-          version_label: 13
+          version_label: "prime-${{ steps.format-time.outputs.replaced }}"
           region: us-east-1
           deployment_package: deploy.zip
