@@ -17,10 +17,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
       - name: Build the Docker image
         run: docker build -t marcosaureliofarias/prime .
+
+      - name: Build the Docker image
+        run: docker push marcosaureliofarias/prime
+
       - name: Generate Deployment Package
         run: zip -r deploy.zip * -x "**node_modules"
+
       - name: Get timestamp
         uses: gerred/actions/current-time@master
         id: current-time
@@ -37,10 +43,10 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v14
         with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_key: ${{ secrets.SECRET_ACCESS_KEY }}
-          application_name: docker-prime
-          environment_name: Dockerprime-env
-          version_label: "docker-react-${{ steps.format-time.outputs.replaced }}"
-          region: us-east-1
+          # aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          # aws_secret_key: ${{ secrets.SECRET_ACCESS_KEY }}
+          # application_name: docker-prime
+          # environment_name: Dockerprime-env
+          # version_label: "docker-react-${{ steps.format-time.outputs.replaced }}"
+          # region: us-east-1
           deployment_package: deploy.zip
