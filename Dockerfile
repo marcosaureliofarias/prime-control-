@@ -12,6 +12,6 @@ RUN npm run build
 
 COPY .env . /build/
 
-EXPOSE 3001
+EXPOSE 8000
 
 CMD ["node", "./build/index.js"]
