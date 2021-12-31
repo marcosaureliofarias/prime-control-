@@ -1,6 +1,8 @@
 import express from "express";
 import connectMongoDB from "./database/mongodb";
 import Form from "./models/Form";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const uri = process.env.MONGO
 
@@ -19,11 +21,11 @@ try {
 const PORT = 8000;
 
 app.get("/", async (req, res) => {
-  res.send("Hello world");
+  res.send("Marcos consultor devops");
 });
 
 app.get("/api", async (req, res) => {
-  res.send("Prime");
+  res.send("Bem-Vindo a PrimeControl");
 });
 
 app.post("/users-form/create", async (req, res) => {
